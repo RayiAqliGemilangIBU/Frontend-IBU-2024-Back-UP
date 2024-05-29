@@ -23,8 +23,8 @@ $(document).ready(function () {
   });
 
   app.route({
-    view: "view_more",
-    load: "view_more.html",
+    view: "faq",
+    load: "faq.html",
   });
 
   app.route({

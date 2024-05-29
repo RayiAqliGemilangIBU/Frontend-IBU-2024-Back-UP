@@ -1,0 +1,209 @@
+<section>
+    <div class="mx-auto max-w-screen-xl px-8 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <header class="text-center mt-24">
+        <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
+        <p class="mx-auto mt-4 max-w-md text-gray-500">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
+          dicta incidunt est ipsam, officia dolor fugit natus?
+        </p>
+      </header>
+
+      <div class="space-y-4 w-11/12 max-w-4xl mx-auto md:w-8/12 lg:w-7/12">
+        <details class="group [&_summary::-webkit-details-marker]:hidden" open>
+          <summary
+            class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
+          >
+            <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
+      
+            <svg
+              class="size-5 shrink-0 transition duration-450 group-open:-rotate-180"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+      
+          <p class="mt-4 px-4 leading-relaxed text-gray-700">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in,
+            recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo
+            consequuntur distinctio corporis earum similique!
+          </p>
+        </details>
+      
+        <details class="group [&_summary::-webkit-details-marker]:hidden">
+          <summary
+            class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
+          >
+            <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
+      
+            <svg
+              class="size-5 shrink-0 transition duration-450 group-open:-rotate-180"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+      
+          <p class="mt-4 px-4 leading-relaxed text-gray-700">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in,
+            recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo
+            consequuntur distinctio corporis earum similique!
+          </p>
+        </details>
+      </div>
+      
+
+    </div>
+  </section>
+  <div class="container">
+    <!-- Title -->
+    <h2>Our Location</h2>
+    <!-- Address details -->
+    <div class="address">
+        McMurdo Station, Antarctica
+    </div>
+    <!-- Map container -->
+    <div id="map">
+        <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;">
+            <img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo">
+        </a>
+    </div>
+</div>
+<p style="text-align: center;">
+    <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> 
+    <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>
+</p>
+<script>
+    // Initialize the map and set its view to a specific geographical point and zoom level
+    var map = L.map('map').setView([-77.8419, 166.6863], 8); // Coordinates for McMurdo Station, Antarctica
+
+    // Add a tile layer to the map (using MapTiler service)
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=xinj6wTWg04tHLy3VyQd', {
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 1,
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        crossOrigin: true
+    }).addTo(map);
+
+    // Add a marker to the map at the same location
+    var marker = L.marker([-77.8419, 166.6863]).addTo(map);
+
+    // Bind a popup to the marker with an embedded Google Maps iframe
+    marker.bindPopup("<iframe src='https://www.google.com/maps?q=-77.8419,166.6863&output=embed' width='200' height='150' frameborder='0' style='border:0' allowfullscreen></iframe>");
+</script>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+<style>
+    /* Style for the map container */
+    #map {
+        height: 400px;
+        width: 50%;
+        margin: 0 auto; /* Center the map */
+    }
+    /* Style for the container to center the content */
+    .container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    /* Style for the header */
+    h2 {
+        margin-bottom: 10px;
+    }
+    /* Style for the address details */
+    .address {
+        margin-bottom: 20px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1200px) {
+        #map {
+            width: 60%;
+        }
+    }
+    @media (max-width: 992px) {
+        #map {
+            width: 70%;
+        }
+    }
+    @media (max-width: 768px) {
+        #map {
+            width: 80%;
+        }
+    }
+    @media (max-width: 576px) {
+        #map {
+            width: 90%;
+        }
+    }
+    @media (max-width: 400px) {
+        #map {
+            width: 100%;
+        }
+    }
+</style>
+  
+  
+  <!-- <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+      max-width: 300px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: animatetop 0.4s;
+    }
+    .modal-image {
+      max-width: 100%;
+      max-height: 70vh;
+      margin-bottom: 20px;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+  </style> -->
+  
+  
+

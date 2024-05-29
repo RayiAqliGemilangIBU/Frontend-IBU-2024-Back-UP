@@ -1,0 +1,33 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Basic Tee",
+        "price": "£24.00 GBP",
+        "sizes": ["S", "M", "L", "XL"],
+        "material": "Cotton"
+      },
+      {
+        "id": 2,
+        "name": "Classic Hoodie",
+        "price": "£50.00 GBP",
+        "sizes": ["M", "L", "XL", "XXL"],
+        "material": "Polyester"
+      },
+      {
+        "id": 3,
+        "name": "Denim Jacket",
+        "price": "£70.00 GBP",
+        "sizes": ["S", "M", "L"],
+        "material": "Denim"
+      },
+      {
+        "id": 4,
+        "name": "Sports Cap",
+        "price": "£15.00 GBP",
+        "sizes": ["One Size"],
+        "material": "Cotton"
+      }
+    ]
+  }
+  

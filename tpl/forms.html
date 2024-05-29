@@ -1,23 +1,37 @@
-<div class="container">
-    <h1>Form Validation</h1>
-    <form id="myForm">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Student" value="Student">
+<section>
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      
+        <header class="text-center mt-24">
+        <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
+        <p class="mx-auto mt-4 max-w-md text-gray-500">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
+          dicta incidunt est ipsam, officia dolor fugit natus?
+        </p>
+        </header>
+      
+        <div class="container">
+            <h1>Form Validation</h1>
+            <form id="myForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Student" value="Student">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" minlength="8" required>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-</div>
+
+    </div>
+</section>
 <script>
     $(document).ready(function () {
         $('#myForm').validate({
