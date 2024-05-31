@@ -1,12 +1,10 @@
 <section>
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-      
         <header class="text-center mt-24">
-        <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
-        <p class="mx-auto mt-4 max-w-md text-gray-500">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
-          dicta incidunt est ipsam, officia dolor fugit natus?
-        </p>
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Account Creation Form</h2>
+            <p class="mx-auto mt-4 max-w-md text-gray-500">
+                Please fill out the form below to create a new account. Ensure all details are correct before submission.
+            </p>
         </header>
       
         <div class="container">
@@ -14,24 +12,29 @@
             <form id="myForm">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Student" value="Student">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="Student" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" name="password" minlength="8" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" minlength="8" maxlength="20" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
-
     </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 <script>
     $(document).ready(function () {
         $('#myForm').validate({
@@ -59,30 +62,15 @@
                     maxlength: 'Password cannot be longer than 20 characters'
                 }
             },
-            submitHandler: function (form) {
-                try {
-                    // Block UI on form submission
-                    $.blockUI({ message: '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>' });
-                    // Simulate form submission
-                    setTimeout(function () {
-                        console.log('Form submitted');
-                        toastr.success('Account that you made were successfully sent to the backend team. If for 24 hours there is no change in customer infomation section, then fire the backend employee and look for new employees!!!');
-                        // Reset the form
-                        $(form)[0].reset();
-                        // Unblock UI after request is complete
-                        $.unblockUI();
-                    }, 3000); // Simulate a 3-second submission time
-                } catch (error) {
-                    console.error('Error in submitHandler:', error);
-                    toastr.error('An error occurred. Please try again later.');
-                    // Unblock UI after request is complete
-                    $.unblockUI();
-                }
+            submitHandler: function(form, event) {
+                event.preventDefault(); // Prevent default form submission
+                
+                // Display success notification
+                toastr.success("Account creation request has been successfully sent to the backend team. If there are no changes in the customer information section within 24 hours, please follow up.");
+
+                // Clear the form
+                form.reset();
             }
         });
     });
 </script>
-<!-- Referensi jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Referensi jQuery Validate -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>

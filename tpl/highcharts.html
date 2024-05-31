@@ -1,33 +1,65 @@
-<section>
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+<section class="">
+  <div class="mx-auto max-w-screen-l px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     
-      <header class="text-center mt-24">
-      <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
+    <header class="text-center mt-24">
+      <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Sales Report</h2>
       <p class="mx-auto mt-4 max-w-md text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
-        dicta incidunt est ipsam, officia dolor fugit natus?
+        Review our detailed sales analysis across various product categories.
       </p>
-      </header>
-      <div id="line"></div>
-      <div id="bars"></div>
-      <div id="pie_chart"></div>
+
+      <!-- Bagian tombol navigasi -->
+      <div class="mt-8 flex justify-center space-x-4">
+        <button onclick="scrollToSection('line')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Sales Grow Report</button>
+        <button onclick="scrollToSection('bars')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">Size Report</button>
+        <button onclick="scrollToSection('pie_chart')" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700">Material Report</button>
+      </div>
+    </header>
+    
+    <div class="mt-24">
+      <h3 class="text-lg font-bold text-gray-900">Sales Grow Report</h3>
+      <p class="mt-2 text-gray-500">Detailed analysis of sales growth...</p>
+      <div id="line" >
+      </div>
+      <!-- Konten lebih lanjut -->
+    </div>
+    
+    <div class="mt-24">
+      <h3 class="text-lg font-bold text-gray-900">Size Report</h3>
+      <p class="mt-2 text-gray-500">Detailed analysis of size categories...</p>
+      <div id="bars">
+      </div>
+      <!-- Konten lebih lanjut -->
+    </div>
+    
+    <div class="mt-24">
+      <h3 class="text-lg font-bold text-gray-900">Material Report</h3>
+      <p class="mt-2 text-gray-500">Detailed analysis of material categories...</p>
+      <div id="pie_chart">
+      </div>
+      <!-- Konten lebih lanjut -->
+    </div>
 
   </div>
 </section>
 
-<script type="text/javascript">
- Highcharts.chart("line", {
+<script>
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  // Highcharts scripts
+  Highcharts.chart("line", {
     title: {
-      text: "Solar Employment Growth by Sector, 2010-2016",
+      text: "Product Sales Growth by Category, 2010-2016",
     },
-
     subtitle: {
-      text: "Source: thesolarfoundation.com",
+      text: "Source: Internal Data",
     },
-
     yAxis: {
       title: {
-        text: "Number of Employees",
+        text: "Number of Sales",
       },
     },
     legend: {
@@ -35,7 +67,6 @@
       align: "right",
       verticalAlign: "middle",
     },
-
     plotOptions: {
       series: {
         label: {
@@ -44,30 +75,24 @@
         pointStart: 2010,
       },
     },
-
     series: [
       {
-        name: "Installation",
+        name: "Basic Tee",
         data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
       },
       {
-        name: "Manufacturing",
+        name: "Classic Hoodie",
         data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434],
       },
       {
-        name: "Sales & Distribution",
+        name: "Denim Jacket",
         data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387],
       },
       {
-        name: "Project Development",
-        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227],
-      },
-      {
-        name: "Other",
+        name: "Sports Cap",
         data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111],
       },
     ],
-
     responsive: {
       rules: [
         {
@@ -86,21 +111,20 @@
     },
   });
 
-  //bar chart
   Highcharts.chart("bars", {
     chart: {
       type: "column",
     },
     title: {
-      text: "Stacked column chart",
+      text: "Product Size Distribution",
     },
     xAxis: {
-      categories: ["Apples", "Oranges", "Pears", "Grapes", "Bananas"],
+      categories: ["S", "M", "L", "XL", "XXL"],
     },
     yAxis: {
       min: 0,
       title: {
-        text: "Total fruit consumption",
+        text: "Number of Products",
       },
       stackLabels: {
         enabled: true,
@@ -138,21 +162,20 @@
     },
     series: [
       {
-        name: "John",
+        name: "Basic Tee",
         data: [5, 3, 4, 7, 2],
       },
       {
-        name: "Jane",
+        name: "Classic Hoodie",
         data: [2, 2, 3, 2, 1],
       },
       {
-        name: "Joe",
+        name: "Denim Jacket",
         data: [3, 4, 4, 2, 5],
       },
     ],
   });
 
-  //pie_chart
   Highcharts.chart("pie_chart", {
     chart: {
       type: "pie",
@@ -163,7 +186,7 @@
       },
     },
     title: {
-      text: "Browser market shares at a specific website, 2014",
+      text: "Material Composition of Products",
     },
     tooltip: {
       pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
@@ -182,19 +205,17 @@
     series: [
       {
         type: "pie",
-        name: "Browser share",
+        name: "Material share",
         data: [
-          ["Firefox", 45.0],
-          ["IE", 26.8],
+          ["Cotton", 45.0],
+          ["Polyester", 26.8],
           {
-            name: "Chrome",
+            name: "Denim",
             y: 12.8,
             sliced: true,
             selected: true,
           },
-          ["Safari", 8.5],
-          ["Opera", 6.2],
-          ["Others", 0.7],
+          ["Other", 15.4],
         ],
       },
     ],
